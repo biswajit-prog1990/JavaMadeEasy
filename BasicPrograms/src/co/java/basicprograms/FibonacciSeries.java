@@ -1,10 +1,12 @@
-package co.java.basicprograms;
-
 /*
  * Program - Fibonacci Series 0 1 1 2 3 5 8 ...
- * Author - Biswajit Dutta
+ * Implementation - Normal Implementation via Loops and implementation by Recursion
+ * Developer - Biswajit Dutta
  * 
  */
+
+package co.java.basicprograms;
+
 import java.util.*;
 public class FibonacciSeries {
    private static Scanner in;
