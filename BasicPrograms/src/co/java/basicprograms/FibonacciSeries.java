@@ -7,7 +7,9 @@ package co.java.basicprograms;
  */
 import java.util.*;
 public class FibonacciSeries {
-   public static void printSeries(int limit) {
+   private static Scanner in;
+
+public static void printSeries(int limit) {
 	   int a = 0, b=1, c;
 	   System.out.print(a+" "+b+" ");
 	   int i=0;
@@ -21,10 +23,18 @@ public class FibonacciSeries {
 	   System.out.println();
    }
    
+   public static int FibonacciRecursion(int limit) {
+	   if(limit == 0 || limit == 1)
+		    return 1;
+	   else
+		   return FibonacciRecursion(limit-1)+FibonacciRecursion(limit-2);
+   }
+   
    public static void main(String[]args) {
-	   Scanner in = new Scanner(System.in);
+	   in = new Scanner(System.in);
 	   System.out.println("Enter a limit:");
 	   int n= in.nextInt();
 	   FibonacciSeries.printSeries(n);
+	   System.out.print(FibonacciRecursion(n)+" ");
    }
 }
