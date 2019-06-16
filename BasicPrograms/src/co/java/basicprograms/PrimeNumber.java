@@ -4,8 +4,6 @@
  * Developer - Biswajit Dutta
  */
 package co.java.basicprograms;
-
-import java.math.*;
 public class PrimeNumber {
    static boolean getPrime(int number) {
 	   if(number<=1)
