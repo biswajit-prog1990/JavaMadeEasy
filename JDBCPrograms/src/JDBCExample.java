@@ -2,19 +2,19 @@ import java.sql.*;
 public class JDBCExample {
 
 	// JDBC driver name and database URL
-	 static final String JDBC_DRIVER = "com.mysql.jdbc.Driver";  
-	 static final String DB_URL = "jdbc:mysql://localhost/STUDENTS";
+	 static final String JDBC_DRIVER = "oracle.jdbc.driver.OracleDriver";  
+	 static final String DB_URL = "jdbc:oracle:thin:@localhost:1521:XE";
 
 	 //  Database credentials
-	 static final String USER = "username";
-	 static final String PASS = "password";
+	 static final String USER = "hr";
+	 static final String PASS = "hr";
 	 
 	public static void main(String[] args) {
 		Connection conn = null;
 		Statement stmt = null;
 		try{
 		    //STEP 2: Register JDBC driver
-		    Class.forName("com.mysql.jdbc.Driver");
+		    Class.forName(JDBC_DRIVER);
 
 		    //STEP 3: Open a connection
 		    System.out.println("Connecting to a selected database...");
@@ -25,23 +25,18 @@ public class JDBCExample {
 		    System.out.println("Creating statement...");
 		    stmt = conn.createStatement();
 
-		    String sql = "SELECT id, first, last, age FROM Registration";
+		    String sql = "SELECT * from aliens";
 		    ResultSet rs = stmt.executeQuery(sql);
 		    //STEP 5: Extract data from result set
 		    while(rs.next()){
 		       //Retrieve by column name
-		       int id  = rs.getInt("id");
-		       int age = rs.getInt("age");
-		       String first = rs.getString("first");
-		       String last = rs.getString("last");
-
-		       //Display values
-		       System.out.print("ID: " + id);
-		       System.out.print(", Age: " + age);
-		       System.out.print(", First: " + first);
-		       System.out.println(", Last: " + last);
+		       System.out.print("ID: " + rs.getInt("alienid"));
+		       System.out.print(", Age: " + rs.getInt("alienage"));
+		       System.out.print(", Name: " + rs.getString("alienname"));
+		       System.out.println();
 		    }
 		    rs.close();
+		    System.out.println("Connection closed");
 		 }catch(SQLException se){
 		    //Handle errors for JDBC
 		    se.printStackTrace();
