@@ -15,7 +15,7 @@ public class fileBasedParser {
 		startIdx = list1.indexOf("Sample ID");
 		endIdx = list1.indexOf("BottleType");
 		List<String> sampleID = new ArrayList<String>();
-		ArrayList<String> sId = new ArrayList<String>();
+		//ArrayList<String> sId = new ArrayList<String>();
 		System.out.println(startIdx + " " + endIdx);
 		while((s=br.readLine())!= null) {
 			sampleID = Arrays.asList(s.split(","));
@@ -24,6 +24,7 @@ public class fileBasedParser {
 		for(String sa: sampleID) {
 			System.out.println(sa);
 		}
+		br.close();
 	}
 	public static void main(String[] args) throws IOException {
 		File file = new File("C:\\Users\\B!SWAJ!T\\Desktop\\Training Folder\\Training File 2.csv");
